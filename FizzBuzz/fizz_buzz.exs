@@ -1,5 +1,7 @@
 defmodule FizzBuzz do
   def fizz_buzz do
-    IO.puts("I'm here!!!!!!!!")
+    1..100
+    |> Enum.to_list()
+    |> IO.inspect()
   end
 end
