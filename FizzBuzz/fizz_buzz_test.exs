@@ -14,10 +14,8 @@ defmodule FizzBuzzTest do
   test "for multiples of 3 print Fizz" do
     result = FizzBuzz.fizz_buzz()
 
-    # there are no multiples of 3 in 'result'
     assert nil == Enum.find(result, &match?(3, &1))
 
-    # instead of 3 we have "Fizz"
     [1, 2, three | _] = result
     assert three == "Fizz"
   end
