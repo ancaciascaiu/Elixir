@@ -21,6 +21,12 @@ defmodule FizzBuzzTest do
   end
 
   test "for multiples of 5 print Buzz" do
+    result = FizzBuzz.fizz_buzz()
+
+    assert nil == Enum.find(result, &match?(5, &1))
+
+    [1, 2, 3, 4, five | _] = result
+    assert five == "Buzz"
   end
 
   test "for multiples of both 3 and 5 print FizzBuzz" do
