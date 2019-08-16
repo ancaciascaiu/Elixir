@@ -1,19 +1,19 @@
 defmodule GameOfLife do
-  def decide(%{status: :dead}, neighbors) do
+  def decide(%DeadCell{}, neighbors) do
     live_neighbors = count_live(neighbors)
 
-    if live_neighbors == 3, do: %{status: :live}
+    if live_neighbors == 3, do: %LiveCell{}
   end
 
-  def decide(%{status: :live}, neighbors) do
+  def decide(%LiveCell{}, neighbors) do
     live_neighbors = count_live(neighbors)
 
-    if live_neighbors < 2, do: %{status: :dead}
+    if live_neighbors < 2, do: %DeadCell{}
   end
 
   defp count_live(cells) do
     cells
-    |> Enum.filter(&(&1.status == :live))
+    |> Enum.filter(&match?(%LiveCell{}, &1))
     |> Enum.count()
   end
 end
