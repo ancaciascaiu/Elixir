@@ -30,5 +30,8 @@ defmodule FizzBuzzTest do
   end
 
   test "for multiples of both 3 and 5 print FizzBuzz" do
+    result = FizzBuzz.fizz_buzz()
+
+    assert Enum.at(result, 14) == "FizzBuzz"
   end
 end
