@@ -23,22 +23,28 @@ defmodule FizzBuzz do
   #   end
   # end
 
-  # using case
-  defp convert(number) do
-    case number do
-      number when rem(number, 15) == 0 ->
-        "FizzBuzz"
+  # # using case: (I dont see the point in using case in solving this problem)
+  # defp convert(number) do
+  #   case number do
+  #     number when rem(number, 15) == 0 ->
+  #       "FizzBuzz"
 
-      number when rem(number, 3) == 0 ->
-        "Fizz"
+  #     number when rem(number, 3) == 0 ->
+  #       "Fizz"
 
-      number when rem(number, 5) == 0 ->
-        "Buzz"
+  #     number when rem(number, 5) == 0 ->
+  #       "Buzz"
 
-      _ ->
-        number
-    end
-  end
+  #     _ ->
+  #       number
+  #   end
+  # end
+
+  # using guards:
+  defp convert(number) when rem(number, 15) == 0, do: "FizzBuzz"
+  defp convert(number) when rem(number, 3) == 0, do: "Fizz"
+  defp convert(number) when rem(number, 5) == 0, do: "Buzz"
+  defp convert(number), do: number
 end
 
 # # Matt Willy's solution
