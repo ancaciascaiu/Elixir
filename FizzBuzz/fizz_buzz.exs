@@ -6,18 +6,36 @@ defmodule FizzBuzz do
     |> IO.inspect()
   end
 
+  # # first try
+  # defp convert(number) do
+  #   cond do
+  #     rem(number, 3) == 0 && rem(number, 5) == 0 ->
+  #       "FizzBuzz"
+
+  #     rem(number, 3) == 0 ->
+  #       "Fizz"
+
+  #     rem(number, 5) == 0 ->
+  #       "Buzz"
+
+  #     true ->
+  #       number
+  #   end
+  # end
+
+  # using case
   defp convert(number) do
-    cond do
-      rem(number, 3) == 0 && rem(number, 5) == 0 ->
+    case number do
+      number when rem(number, 15) == 0 ->
         "FizzBuzz"
 
-      rem(number, 3) == 0 ->
+      number when rem(number, 3) == 0 ->
         "Fizz"
 
-      rem(number, 5) == 0 ->
+      number when rem(number, 5) == 0 ->
         "Buzz"
 
-      true ->
+      _ ->
         number
     end
   end
