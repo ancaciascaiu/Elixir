@@ -27,9 +27,15 @@ defmodule GameOfLifeTest do
     end
 
     test "with less than 3 live neighbors, it dies" do
+      cell = %DeadCell{}
+      neighbors = [%LiveCell{}, %LiveCell{}]
+      assert %DeadCell{} = GameOfLife.decide(cell, neighbors)
     end
 
     test "with more than 3 live neighbors, it dies" do
+      cell = %DeadCell{}
+      neighbors = [%LiveCell{}, %LiveCell{}, %LiveCell{}, %LiveCell{}]
+      assert %DeadCell{} = GameOfLife.decide(cell, neighbors)
     end
   end
 end
