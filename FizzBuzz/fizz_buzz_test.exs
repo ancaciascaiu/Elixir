@@ -5,12 +5,21 @@ defmodule FizzBuzzTest do
 
   test "print all numbers from 1 to 100" do
     result = FizzBuzz.fizz_buzz()
+
     assert Enum.count(result) == 100
     assert List.first(result) == 1
     assert List.last(result) == 100
   end
 
   test "for multiples of 3 print Fizz" do
+    result = FizzBuzz.fizz_buzz()
+
+    # there are no multiples of 3 in 'result'
+    assert nil == Enum.find(result, &match?(3, &1))
+
+    # instead of 3 we have "Fizz"
+    [1, 2, three | _] = result
+    assert three == "Fizz"
   end
 
   test "for multiples of 5 print Buzz" do
