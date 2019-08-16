@@ -9,11 +9,11 @@ defmodule GameOfLife do
     end
   end
 
-  def decide(%LiveCell{}, neighbors) do
+  def decide(%LiveCell{position: position}, neighbors) do
     live_neighbors = count_live(neighbors)
 
     cond do
-      live_neighbors < 2 -> %DeadCell{}
+      live_neighbors < 2 -> %DeadCell{position: position}
       live_neighbors == 2 -> %LiveCell{}
       live_neighbors == 3 -> %LiveCell{}
       live_neighbors > 3 -> %DeadCell{}

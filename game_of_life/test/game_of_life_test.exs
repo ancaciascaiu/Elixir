@@ -4,9 +4,9 @@ defmodule GameOfLifeTest do
 
   describe "any live cell" do
     test "with fewer that 2 live neighbors, it dies" do
-      cell = %LiveCell{}
+      cell = %LiveCell{position: :upside_down}
       neighbors = [%LiveCell{}]
-      assert %DeadCell{} = GameOfLife.decide(cell, neighbors)
+      assert %DeadCell{position: :upside_down} = GameOfLife.decide(cell, neighbors)
     end
 
     test "with exactly 2 live neighbors, it lives" do
