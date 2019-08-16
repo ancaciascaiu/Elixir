@@ -8,7 +8,7 @@ defmodule FizzBuzzTest do
 
     assert Enum.count(result) == 100
     assert List.first(result) == 1
-    assert List.last(result) == 100
+    assert List.last(result) == "Buzz"
   end
 
   test "for multiples of 3 print Fizz" do
@@ -25,7 +25,7 @@ defmodule FizzBuzzTest do
 
     assert nil == Enum.find(result, &match?(5, &1))
 
-    [1, 2, 3, 4, five | _] = result
+    [1, 2, "Fizz", 4, five | _] = result
     assert five == "Buzz"
   end
 
