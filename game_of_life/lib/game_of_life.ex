@@ -12,7 +12,12 @@ defmodule GameOfLife do
   def decide(%LiveCell{}, neighbors) do
     live_neighbors = count_live(neighbors)
 
-    if live_neighbors < 2, do: %DeadCell{}
+    cond do
+      live_neighbors < 2 -> %DeadCell{}
+      live_neighbors == 2 -> %LiveCell{}
+      live_neighbors == 3 -> %LiveCell{}
+      live_neighbors > 3 -> %DeadCell{}
+    end
   end
 
   defp count_live(cells) do
