@@ -1,3 +1,4 @@
+# run tests with `elixir -r fizz_buzz.exs fizz_buzz_test.exs`
 ExUnit.start()
 
 defmodule FizzBuzzTest do
