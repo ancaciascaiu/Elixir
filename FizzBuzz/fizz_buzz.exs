@@ -4,6 +4,9 @@ defmodule FizzBuzz do
     |> Enum.to_list()
     |> Enum.map(fn number ->
       cond do
+        rem(number, 3) == 0 && rem(number, 5) == 0 ->
+          "FizzBuzz"
+
         rem(number, 3) == 0 ->
           "Fizz"
 
