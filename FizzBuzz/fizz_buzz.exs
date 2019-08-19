@@ -11,13 +11,10 @@ defmodule FizzBuzz do
   #   cond do
   #     rem(number, 3) == 0 && rem(number, 5) == 0 ->
   #       "FizzBuzz"
-
   #     rem(number, 3) == 0 ->
   #       "Fizz"
-
   #     rem(number, 5) == 0 ->
   #       "Buzz"
-
   #     true ->
   #       number
   #   end
@@ -28,23 +25,30 @@ defmodule FizzBuzz do
   #   case number do
   #     number when rem(number, 15) == 0 ->
   #       "FizzBuzz"
-
   #     number when rem(number, 3) == 0 ->
   #       "Fizz"
-
   #     number when rem(number, 5) == 0 ->
   #       "Buzz"
-
   #     _ ->
   #       number
   #   end
   # end
 
-  # using guards:
-  defp convert(number) when rem(number, 15) == 0, do: "FizzBuzz"
-  defp convert(number) when rem(number, 3) == 0, do: "Fizz"
-  defp convert(number) when rem(number, 5) == 0, do: "Buzz"
-  defp convert(number), do: number
+  # using case: (Ethan)
+  defp convert(number) do
+    case [rem(number, 3), rem(number, 5)] do
+      [0, 0] -> "FizzBuzz"
+      [0, _] -> "Fizz"
+      [_, 0] -> "Buzz"
+      [_, _] -> number
+    end
+  end
+
+  # # using guards:
+  # defp convert(number) when rem(number, 15) == 0, do: "FizzBuzz"
+  # defp convert(number) when rem(number, 3) == 0, do: "Fizz"
+  # defp convert(number) when rem(number, 5) == 0, do: "Buzz"
+  # defp convert(number), do: number
 end
 
 # # Matt Willy's solution
